@@ -174,13 +174,13 @@ class Writer(SheetWriter):
     of the data files
     """
 
-    def __init__(self, file, **keywords):
+    def __init__(self, file, sheet_name=None, **keywords):
         """Constructor for single sheet writer
 
         This class creates only one sheet writer and stick with it
         """
         self.bookwriter = BookWriter(file, **keywords)
-        self.writer = self.bookwriter.create_sheet(None).writer
+        self.writer = self.bookwriter.create_sheet(sheet_name).writer
 
     def close(self):
         """
